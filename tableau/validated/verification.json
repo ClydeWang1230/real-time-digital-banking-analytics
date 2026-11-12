@@ -1,0 +1,173 @@
+{
+  "status": "passed_local_desktop_acceptance",
+  "verified_at_utc": "2026-11-09T08:49:14.177124+00:00",
+  "tableau_version_observed": "2026.1",
+  "package_sha256": "faba3157e3d47693d4774ab6e03d8f4a5f98032ad919658b84dd2969cab4ce0c",
+  "workbook_sha256": "6620c0dc227c58fe4f6bc3ee5f63c06ce5c6a944b052fed3f403a53ba5969cd5",
+  "automated_tests": {
+    "command": ".venv/Scripts/python.exe -B -m unittest discover -s tests",
+    "tests": 83,
+    "result": "OK",
+    "elapsed_seconds": 14.427,
+    "tableau_tests": 9
+  },
+  "native_desktop_checks": {
+    "load_without_format_error": true,
+    "all_three_parameter_selections": true,
+    "ordered_funnel_and_six_transitions": true,
+    "kpi_channel_and_text_reconciliation": true,
+    "titles_labels_and_line_breaks_visible": true,
+    "candidate_v4_and_delivered_package_byte_identical": true,
+    "delivered_package_reopened_from_validated_directory": true,
+    "default_selection": "Simulation A | seed 42",
+    "evidence_method": "Visual inspection of Tableau Desktop renderings and parameter switching; screenshots captured from the actual application"
+  },
+  "observed_values": {
+    "legacy": {
+      "events": 505,
+      "starts": 100,
+      "accounts": 66,
+      "transactions": 38,
+      "incomplete": 62,
+      "funnel": [
+        100,
+        89,
+        84,
+        72,
+        66,
+        56,
+        38
+      ],
+      "dropoff": [
+        11,
+        5,
+        12,
+        6,
+        10,
+        18
+      ],
+      "channel_transaction_counts": [
+        8,
+        11,
+        19
+      ],
+      "channel_start_counts": [
+        25,
+        43,
+        32
+      ],
+      "bottleneck_loss": 18,
+      "bottleneck_rate_display": "32.1%",
+      "screenshot": "screenshots/historical_baseline.png",
+      "screenshot_sha256": "d5e39e70fb6174e4f649b6e668a4e62368028ff17165eaf8f4abac8e4bc0763e",
+      "native_quality_status": "PASS: 15 checks; excluded sessions 0; orphans 0"
+    },
+    "4a10a289-b783-462b-8614-8011bf8a929f": {
+      "events": 508,
+      "starts": 100,
+      "accounts": 63,
+      "transactions": 37,
+      "incomplete": 63,
+      "funnel": [
+        100,
+        97,
+        86,
+        71,
+        63,
+        54,
+        37
+      ],
+      "dropoff": [
+        3,
+        11,
+        15,
+        8,
+        9,
+        17
+      ],
+      "channel_transaction_counts": [
+        13,
+        16,
+        8
+      ],
+      "channel_start_counts": [
+        32,
+        38,
+        30
+      ],
+      "bottleneck_loss": 17,
+      "bottleneck_rate_display": "31.5%",
+      "screenshot": "screenshots/simulation_a.png",
+      "screenshot_sha256": "a6e98575f0a72ba1ea946e4dd869097fb4a9b1728dd45970e68065b869d5ef25",
+      "native_quality_status": "PASS: 15 checks; excluded sessions 0; orphans 0"
+    },
+    "6fb434c1-139e-4075-9f7a-ea3c13d4552c": {
+      "events": 481,
+      "starts": 100,
+      "accounts": 58,
+      "transactions": 30,
+      "incomplete": 70,
+      "funnel": [
+        100,
+        94,
+        79,
+        69,
+        58,
+        51,
+        30
+      ],
+      "dropoff": [
+        6,
+        15,
+        10,
+        11,
+        7,
+        21
+      ],
+      "channel_transaction_counts": [
+        14,
+        5,
+        11
+      ],
+      "channel_start_counts": [
+        33,
+        31,
+        36
+      ],
+      "bottleneck_loss": 21,
+      "bottleneck_rate_display": "41.2%",
+      "screenshot": "screenshots/simulation_b.png",
+      "screenshot_sha256": "82b6d5b726cd2951642fd4a5813d90cfbc0fa9db1058942c736d46e64d77799b",
+      "native_quality_status": "PASS: 15 checks; excluded sessions 0; orphans 0"
+    }
+  },
+  "preservation": {
+    "historical_database_sha256": {
+      "banking_events_analytics.duckdb": "123f2b9392e4a55c314269dc9e373fe8a516ed32a12599bec38d825a03c294b6",
+      "banking_events_debug.duckdb": "1c2d9c82df6b0b2318185ff87bf4869dde8f17317dc5b294a22791b2a3d23de8",
+      "banking_events.duckdb": "c54f9385c49b409eeb3a9fdc4e0235715a7f9731a2b4fb8eed7c9c74e6414e8d",
+      "consumer/banking_events.duckdb": "c54f9385c49b409eeb3a9fdc4e0235715a7f9731a2b4fb8eed7c9c74e6414e8d"
+    },
+    "source_database_sha256": {
+      "banking_events_analytics.duckdb": "123f2b9392e4a55c314269dc9e373fe8a516ed32a12599bec38d825a03c294b6",
+      "artifacts\\verification\\p03-20261108T110003Z-759b7c17\\simulation.duckdb": "c7d77b148910f7f8cc129bd240b7320f94a61394f6389c2f3435deac38fd3ac4"
+    },
+    "p04_analytics_csvs_unchanged": 35,
+    "source_snapshot_manifests_unchanged": true,
+    "original_failed_review_package_unchanged": true
+  },
+  "reproducibility": {
+    "current_generator_reproduces_identical_twb": true,
+    "source_sha256": {
+      "tableau/workbook.py": "db13105cfb5fea39fcd1e81f9991326d1bb124d4e3db35cbb9f94b731c7561a5",
+      "scripts/build_tableau.py": "0e7251665b211a93878fd51f077f1c04ee484af3f8c1da70e59f80509e4eb576",
+      "tests/test_tableau.py": "07c7d8580ea2d9746634779728294a51215314ebcbfcf4ea3a1b46b67442a14c"
+    }
+  },
+  "limitations": [
+    "Local synthetic-data snapshot dashboard; no live refresh or cloud publication.",
+    "Native acceptance was performed on Tableau Desktop 2026.1 on this computer; other versions were not tested.",
+    "Future generated workbooks still require separate native rendering checks."
+  ],
+  "documentation_links_checked": 26
+}

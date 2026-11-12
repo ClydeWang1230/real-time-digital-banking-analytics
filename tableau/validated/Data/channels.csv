@@ -1,0 +1,10 @@
+dataset_label,run_id,channel,started_sessions,account_opened_sessions,first_transaction_sessions,transaction_rate,channel_label
+Historical baseline | 505 events,legacy,Branch,25,14,8,0.32,32.0%   |   8 / 25
+Historical baseline | 505 events,legacy,Mobile app,43,27,11,0.2558139534883721,25.6%   |   11 / 43
+Historical baseline | 505 events,legacy,Web,32,25,19,0.59375,59.4%   |   19 / 32
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,Branch,32,22,13,0.40625,40.6%   |   13 / 32
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,Mobile app,38,23,16,0.42105263157894735,42.1%   |   16 / 38
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,Web,30,18,8,0.26666666666666666,26.7%   |   8 / 30
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,Branch,33,23,14,0.42424242424242425,42.4%   |   14 / 33
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,Mobile app,31,15,5,0.16129032258064516,16.1%   |   5 / 31
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,Web,36,20,11,0.3055555555555556,30.6%   |   11 / 36

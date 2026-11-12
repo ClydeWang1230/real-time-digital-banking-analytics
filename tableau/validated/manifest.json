@@ -1,0 +1,394 @@
+{
+  "dashboard_version": "banking-onboarding-v1",
+  "created_at_utc": "2026-11-09T08:27:15.686013+00:00",
+  "default_run_id": "4a10a289-b783-462b-8614-8011bf8a929f",
+  "runs": {
+    "legacy": "Historical baseline | 505 events",
+    "4a10a289-b783-462b-8614-8011bf8a929f": "Simulation A | seed 42",
+    "6fb434c1-139e-4075-9f7a-ea3c13d4552c": "Simulation B | seed 7"
+  },
+  "source_snapshots": [
+    {
+      "snapshot": "C:\\Users\\kxwang\\Documents\\Github\\real-time-digital-banking-analytics\\artifacts\\verification\\p04-20261108T115412Z-17d45672\\exports\\source_1_all",
+      "manifest_sha256": "925279a83afe3cf08b3d2f467e3244c42d6616c8ad9e9a67817b9d642569ddde",
+      "analytics_manifest": {
+        "analytics_version": "onboarding-analytics-v1",
+        "created_at_utc": "2026-11-08T11:54:13.977188+00:00",
+        "source_database": "C:\\Users\\kxwang\\Documents\\Github\\real-time-digital-banking-analytics\\banking_events_analytics.duckdb",
+        "source_files": [
+          {
+            "file": "C:\\Users\\kxwang\\Documents\\Github\\real-time-digital-banking-analytics\\banking_events_analytics.duckdb",
+            "bytes": 536576,
+            "sha256": "123f2b9392e4a55c314269dc9e373fe8a516ed32a12599bec38d825a03c294b6"
+          }
+        ],
+        "sql_sha256_utf8_normalized_newlines": {
+          "01_data_quality_checks": "2ba5477fd3170a61b94bc006e697a3f8a912ca3d8210b5bbaf9caf964bb9172f",
+          "02_event_counts_by_type": "acc42cb7b8dfca2a09da5f0b9b0ddd7a1242843c088342f9a5f49582a11c9e14",
+          "03_onboarding_funnel": "8aeaed5206a2857f8ddd06678e171204c5a67fbcf250497262f9472cb6c0b68f",
+          "04_onboarding_kpis": "3b1d1c8a9153ab9cf6210717d76bed4c5c510e67c875003a8e6f2e19e0f11b77",
+          "05_channel_performance": "3d4c83f783468b88811694e09dedd80b92c7a43d44b5027ff20965c43aa41856",
+          "06_session_journeys": "2a375c7a2042bd16f2298177c83f408214aa7fdc83f78442c2b602f3367e14e1",
+          "07_ingestion_health": "5fa0a2ef59423c417970a0cf573db2bd3df1c5feb2f1549a1fefcab4a010d011",
+          "models/00_analytics_models": "0b326595fd6c7f906b7abc349ce15f722b31354e67e7ce838078e166d996f03a"
+        },
+        "selection": {
+          "run_id": null,
+          "legacy_only": false,
+          "mode": "all_runs_separately"
+        },
+        "error_checks": 0,
+        "quality_passed": true,
+        "null_encoding": "empty CSV field",
+        "timestamp_timezone": "UTC",
+        "percentage_scale": "0 to 100 (not 0 to 1)",
+        "datasets": [
+          {
+            "file": "01_data_quality_checks.csv",
+            "rows": 15,
+            "scope": "selected_runs",
+            "columns": {
+              "scope": "VARCHAR",
+              "run_id": "VARCHAR",
+              "check_name": "VARCHAR",
+              "severity": "VARCHAR",
+              "unit": "VARCHAR",
+              "affected_count": "BIGINT",
+              "status": "VARCHAR"
+            },
+            "sha256": "64939854f798b77eb3e741714839e7ec64e206b519669ebc6ff925beeed86fbf"
+          },
+          {
+            "file": "02_event_counts_by_type.csv",
+            "rows": 7,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "event_type": "VARCHAR",
+              "event_count": "BIGINT",
+              "unique_event_ids": "BIGINT",
+              "sessions_with_event": "BIGINT",
+              "invalid_rows": "BIGINT"
+            },
+            "sha256": "f9f9475da58d18420be971db2ee41a10624320272bde9b7688d36a8f28423ee3"
+          },
+          {
+            "file": "03_onboarding_funnel.csv",
+            "rows": 7,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "step": "INTEGER",
+              "stage": "VARCHAR",
+              "stage_label": "VARCHAR",
+              "sessions": "BIGINT",
+              "started_sessions": "BIGINT",
+              "previous_sessions": "BIGINT",
+              "conversion_from_start_pct": "DOUBLE",
+              "conversion_from_previous_pct": "DOUBLE",
+              "dropoff_sessions": "BIGINT",
+              "dropoff_from_previous_pct": "DOUBLE"
+            },
+            "sha256": "6b1a35453cfde01ec7ffc301bdf55e48a3a66d33e5c0500e60f4541aa5e013c2"
+          },
+          {
+            "file": "04_onboarding_kpis.csv",
+            "rows": 1,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "event_rows": "BIGINT",
+              "unique_event_ids": "BIGINT",
+              "observed_customers": "BIGINT",
+              "observed_sessions": "BIGINT",
+              "excluded_sessions": "BIGINT",
+              "orphan_sessions": "BIGINT",
+              "started_sessions": "BIGINT",
+              "kyc_submitted_sessions": "BIGINT",
+              "kyc_passed_sessions": "BIGINT",
+              "sessions_with_kyc_failure": "BIGINT",
+              "account_opened_sessions": "BIGINT",
+              "card_activated_sessions": "BIGINT",
+              "first_transaction_sessions": "BIGINT",
+              "not_completed_sessions": "BIGINT",
+              "kyc_pass_from_submission_pct": "DOUBLE",
+              "account_opening_conversion_pct": "DOUBLE",
+              "first_transaction_conversion_pct": "DOUBLE",
+              "account_to_first_transaction_pct": "DOUBLE",
+              "avg_minutes_to_account_opened": "DOUBLE",
+              "median_minutes_to_account_opened": "DOUBLE",
+              "avg_minutes_to_first_transaction": "DOUBLE",
+              "median_minutes_to_first_transaction": "DOUBLE"
+            },
+            "sha256": "67eb0d2f07ef0b6fb942ff818b0115f17e3fe3c53fb77cfdec5f4aa5768446c4"
+          },
+          {
+            "file": "05_channel_performance.csv",
+            "rows": 3,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "channel": "VARCHAR",
+              "started_sessions": "BIGINT",
+              "account_opened_sessions": "BIGINT",
+              "first_transaction_sessions": "BIGINT",
+              "avg_minutes_to_first_transaction": "DOUBLE",
+              "not_completed_sessions": "BIGINT",
+              "account_opening_conversion_pct": "DOUBLE",
+              "first_transaction_conversion_pct": "DOUBLE"
+            },
+            "sha256": "901295ca7ff55c239cd0a5a7aedffb99dca72c6fcf9ccfe6c3b19e930d36b5a3"
+          },
+          {
+            "file": "06_session_journeys.csv",
+            "rows": 100,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "session_id": "VARCHAR",
+              "customer_id": "VARCHAR",
+              "channel": "VARCHAR",
+              "device_type": "VARCHAR",
+              "raw_event_rows": "BIGINT",
+              "is_eligible": "BOOLEAN",
+              "exclusion_reason": "VARCHAR",
+              "journey_status": "VARCHAR",
+              "stages_reached": "INTEGER",
+              "last_valid_stage": "VARCHAR",
+              "started_at": "TIMESTAMP WITH TIME ZONE",
+              "profile_at": "TIMESTAMP WITH TIME ZONE",
+              "kyc_submitted_at": "TIMESTAMP WITH TIME ZONE",
+              "kyc_passed_at": "TIMESTAMP WITH TIME ZONE",
+              "kyc_failed_at": "TIMESTAMP WITH TIME ZONE",
+              "account_opened_at": "TIMESTAMP WITH TIME ZONE",
+              "card_activated_at": "TIMESTAMP WITH TIME ZONE",
+              "first_transaction_at": "TIMESTAMP WITH TIME ZONE",
+              "minutes_to_account_opened": "DOUBLE",
+              "minutes_to_first_transaction": "DOUBLE"
+            },
+            "sha256": "c7870d303c53c4ea85cac889954d9ce3d5fc8a4deb2a6f14a37842e7977e2e0e"
+          },
+          {
+            "file": "07_ingestion_health.csv",
+            "rows": 4,
+            "scope": "database",
+            "columns": {
+              "scope": "VARCHAR",
+              "metric": "VARCHAR",
+              "value": "BIGINT",
+              "available": "BOOLEAN"
+            },
+            "sha256": "3194a0c93b335682a855bc9054d128cea48aeb4c879a9b36671ae999f04966bb"
+          }
+        ]
+      }
+    },
+    {
+      "snapshot": "C:\\Users\\kxwang\\Documents\\Github\\real-time-digital-banking-analytics\\artifacts\\verification\\p04-20261108T115412Z-17d45672\\exports\\source_2_all",
+      "manifest_sha256": "06d2608592fc718124b7f13351e699eb0fe642eb67c2484209cccda71c92716d",
+      "analytics_manifest": {
+        "analytics_version": "onboarding-analytics-v1",
+        "created_at_utc": "2026-11-08T11:54:14.163638+00:00",
+        "source_database": "C:\\Users\\kxwang\\Documents\\Github\\real-time-digital-banking-analytics\\artifacts\\verification\\p03-20261108T110003Z-759b7c17\\simulation.duckdb",
+        "source_files": [
+          {
+            "file": "C:\\Users\\kxwang\\Documents\\Github\\real-time-digital-banking-analytics\\artifacts\\verification\\p03-20261108T110003Z-759b7c17\\simulation.duckdb",
+            "bytes": 3682304,
+            "sha256": "c7d77b148910f7f8cc129bd240b7320f94a61394f6389c2f3435deac38fd3ac4"
+          }
+        ],
+        "sql_sha256_utf8_normalized_newlines": {
+          "01_data_quality_checks": "2ba5477fd3170a61b94bc006e697a3f8a912ca3d8210b5bbaf9caf964bb9172f",
+          "02_event_counts_by_type": "acc42cb7b8dfca2a09da5f0b9b0ddd7a1242843c088342f9a5f49582a11c9e14",
+          "03_onboarding_funnel": "8aeaed5206a2857f8ddd06678e171204c5a67fbcf250497262f9472cb6c0b68f",
+          "04_onboarding_kpis": "3b1d1c8a9153ab9cf6210717d76bed4c5c510e67c875003a8e6f2e19e0f11b77",
+          "05_channel_performance": "3d4c83f783468b88811694e09dedd80b92c7a43d44b5027ff20965c43aa41856",
+          "06_session_journeys": "2a375c7a2042bd16f2298177c83f408214aa7fdc83f78442c2b602f3367e14e1",
+          "07_ingestion_health": "5fa0a2ef59423c417970a0cf573db2bd3df1c5feb2f1549a1fefcab4a010d011",
+          "models/00_analytics_models": "0b326595fd6c7f906b7abc349ce15f722b31354e67e7ce838078e166d996f03a"
+        },
+        "selection": {
+          "run_id": null,
+          "legacy_only": false,
+          "mode": "all_runs_separately"
+        },
+        "error_checks": 0,
+        "quality_passed": true,
+        "null_encoding": "empty CSV field",
+        "timestamp_timezone": "UTC",
+        "percentage_scale": "0 to 100 (not 0 to 1)",
+        "datasets": [
+          {
+            "file": "01_data_quality_checks.csv",
+            "rows": 30,
+            "scope": "selected_runs",
+            "columns": {
+              "scope": "VARCHAR",
+              "run_id": "VARCHAR",
+              "check_name": "VARCHAR",
+              "severity": "VARCHAR",
+              "unit": "VARCHAR",
+              "affected_count": "BIGINT",
+              "status": "VARCHAR"
+            },
+            "sha256": "e2b2e7d0578a7a5e010c30aeea10bcf4f6c3a20aafef2f37163e6f0f65454345"
+          },
+          {
+            "file": "02_event_counts_by_type.csv",
+            "rows": 14,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "event_type": "VARCHAR",
+              "event_count": "BIGINT",
+              "unique_event_ids": "BIGINT",
+              "sessions_with_event": "BIGINT",
+              "invalid_rows": "BIGINT"
+            },
+            "sha256": "7108c53000a1396e04456214a320c1e35b58d519f6398dc6d9f9612dde77027d"
+          },
+          {
+            "file": "03_onboarding_funnel.csv",
+            "rows": 14,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "step": "INTEGER",
+              "stage": "VARCHAR",
+              "stage_label": "VARCHAR",
+              "sessions": "BIGINT",
+              "started_sessions": "BIGINT",
+              "previous_sessions": "BIGINT",
+              "conversion_from_start_pct": "DOUBLE",
+              "conversion_from_previous_pct": "DOUBLE",
+              "dropoff_sessions": "BIGINT",
+              "dropoff_from_previous_pct": "DOUBLE"
+            },
+            "sha256": "1f0cf71cc29081300cab8876c732b5dab6033909cf60d0723e36427ea863725f"
+          },
+          {
+            "file": "04_onboarding_kpis.csv",
+            "rows": 2,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "event_rows": "BIGINT",
+              "unique_event_ids": "BIGINT",
+              "observed_customers": "BIGINT",
+              "observed_sessions": "BIGINT",
+              "excluded_sessions": "BIGINT",
+              "orphan_sessions": "BIGINT",
+              "started_sessions": "BIGINT",
+              "kyc_submitted_sessions": "BIGINT",
+              "kyc_passed_sessions": "BIGINT",
+              "sessions_with_kyc_failure": "BIGINT",
+              "account_opened_sessions": "BIGINT",
+              "card_activated_sessions": "BIGINT",
+              "first_transaction_sessions": "BIGINT",
+              "not_completed_sessions": "BIGINT",
+              "kyc_pass_from_submission_pct": "DOUBLE",
+              "account_opening_conversion_pct": "DOUBLE",
+              "first_transaction_conversion_pct": "DOUBLE",
+              "account_to_first_transaction_pct": "DOUBLE",
+              "avg_minutes_to_account_opened": "DOUBLE",
+              "median_minutes_to_account_opened": "DOUBLE",
+              "avg_minutes_to_first_transaction": "DOUBLE",
+              "median_minutes_to_first_transaction": "DOUBLE"
+            },
+            "sha256": "db2893cb40faed5274c6bd970ebbd04b991648994b6db139672f234626eb13e6"
+          },
+          {
+            "file": "05_channel_performance.csv",
+            "rows": 6,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "channel": "VARCHAR",
+              "started_sessions": "BIGINT",
+              "account_opened_sessions": "BIGINT",
+              "first_transaction_sessions": "BIGINT",
+              "avg_minutes_to_first_transaction": "DOUBLE",
+              "not_completed_sessions": "BIGINT",
+              "account_opening_conversion_pct": "DOUBLE",
+              "first_transaction_conversion_pct": "DOUBLE"
+            },
+            "sha256": "5d05716a0e1d72173144900bc9e67cbbf55066af5b1594c04725a47fa9bb244b"
+          },
+          {
+            "file": "06_session_journeys.csv",
+            "rows": 200,
+            "scope": "selected_runs",
+            "columns": {
+              "run_id": "VARCHAR",
+              "session_id": "VARCHAR",
+              "customer_id": "VARCHAR",
+              "channel": "VARCHAR",
+              "device_type": "VARCHAR",
+              "raw_event_rows": "BIGINT",
+              "is_eligible": "BOOLEAN",
+              "exclusion_reason": "VARCHAR",
+              "journey_status": "VARCHAR",
+              "stages_reached": "INTEGER",
+              "last_valid_stage": "VARCHAR",
+              "started_at": "TIMESTAMP WITH TIME ZONE",
+              "profile_at": "TIMESTAMP WITH TIME ZONE",
+              "kyc_submitted_at": "TIMESTAMP WITH TIME ZONE",
+              "kyc_passed_at": "TIMESTAMP WITH TIME ZONE",
+              "kyc_failed_at": "TIMESTAMP WITH TIME ZONE",
+              "account_opened_at": "TIMESTAMP WITH TIME ZONE",
+              "card_activated_at": "TIMESTAMP WITH TIME ZONE",
+              "first_transaction_at": "TIMESTAMP WITH TIME ZONE",
+              "minutes_to_account_opened": "DOUBLE",
+              "minutes_to_first_transaction": "DOUBLE"
+            },
+            "sha256": "cbcece4bf6608dd1ebd7068b0045114bd11bb927a02eeb1ef4c13f896014bfa8"
+          },
+          {
+            "file": "07_ingestion_health.csv",
+            "rows": 4,
+            "scope": "database",
+            "columns": {
+              "scope": "VARCHAR",
+              "metric": "VARCHAR",
+              "value": "BIGINT",
+              "available": "BOOLEAN"
+            },
+            "sha256": "62153dcd23d37c4cdada537ddf5680cf532cdcea94906c5c3c9fbf5bf4a7c247"
+          }
+        ]
+      }
+    }
+  ],
+  "datasets": [
+    {
+      "file": "Data/kpis.csv",
+      "rows": 3,
+      "sha256": "738d35993fdb1638be7300f77048661a7ccb17b7556a226ba13da9c1c1da8130"
+    },
+    {
+      "file": "Data/funnel.csv",
+      "rows": 21,
+      "sha256": "75edb0c1d7efa9934b4214bfbf671a196f0c7038bb9485e234522c38a5d3006d"
+    },
+    {
+      "file": "Data/channels.csv",
+      "rows": 9,
+      "sha256": "9b7ec025cda89c57c47088a7c8714e574bf240984dd5d0c5331bc5b8eb2f5808"
+    }
+  ],
+  "workbook_sha256": "6620c0dc227c58fe4f6bc3ee5f63c06ce5c6a944b052fed3f403a53ba5969cd5",
+  "package_sha256": "faba3157e3d47693d4774ab6e03d8f4a5f98032ad919658b84dd2969cab4ce0c",
+  "percentage_scale": "0 to 1; formatted as percentages in Tableau",
+  "null_encoding": "empty CSV field",
+  "grain": {
+    "kpis": "run",
+    "funnel": "run + step",
+    "channels": "run + channel"
+  },
+  "validation": {
+    "source_checksums": "passed",
+    "count_and_rate_reconciliation": "passed",
+    "archive_readback": "passed",
+    "tableau_desktop_rendering": "requires separate desktop verification"
+  }
+}

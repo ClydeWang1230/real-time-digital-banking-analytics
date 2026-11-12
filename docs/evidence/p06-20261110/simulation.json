@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "topic": "banking-p03-20261110t032022z-8cbc607f",
+  "group": "banking-p03-20261110t032022z-8cbc607f-consumer",
+  "database": "<repo>\\artifacts\\verification\\p06-20261110T031536Z\\clean_workspace\\artifacts\\verification\\p03-20261110T032022Z-8cbc607f\\simulation.duckdb",
+  "batches": [
+    {
+      "format": "banking-batch-v1",
+      "simulation": {
+        "generator_version": "onboarding-v1",
+        "run_id": "7490cc24-95f2-4e23-8e88-ea9647aaff1d",
+        "seed": 42,
+        "base_time": "2026-11-08T00:00:00+00:00",
+        "customer_count": 100
+      },
+      "event_count": 508,
+      "events_sha256": "ec7959f5039a24a469c93db5a20120764e159cb24826ff14b539e9169444369e"
+    },
+    {
+      "format": "banking-batch-v1",
+      "simulation": {
+        "generator_version": "onboarding-v1",
+        "run_id": "b4d2dc58-37d6-4222-9cae-daa91aae419b",
+        "seed": 7,
+        "base_time": "2026-11-08T02:00:00+00:00",
+        "customer_count": 100
+      },
+      "event_count": 481,
+      "events_sha256": "8cd1339648198f296a7f65b68ba562918b36e960a0c8f1734c776384b2303cdd"
+    }
+  ],
+  "regeneration_bytes_equal": true,
+  "phases": [
+    {
+      "name": "first_batch",
+      "producer": {
+        "attempted": 508,
+        "queued": 508,
+        "acknowledged": 508,
+        "failed": 0,
+        "pending": 0
+      },
+      "consumer": {
+        "received": 508,
+        "inserted": 508,
+        "duplicate": 0,
+        "rejected": 0,
+        "replayed": 0,
+        "committed": 508,
+        "stop_reason": "max_messages"
+      },
+      "runs": [
+        {
+          "run_id": "7490cc24-95f2-4e23-8e88-ea9647aaff1d",
+          "events": 508,
+          "unique_event_ids": 508,
+          "customers": 100,
+          "sessions": 100
+        }
+      ]
+    },
+    {
+      "name": "file_replay",
+      "producer": {
+        "attempted": 508,
+        "queued": 508,
+        "acknowledged": 508,
+        "failed": 0,
+        "pending": 0
+      },
+      "consumer": {
+        "received": 508,
+        "inserted": 0,
+        "duplicate": 508,
+        "rejected": 0,
+        "replayed": 0,
+        "committed": 508,
+        "stop_reason": "max_messages"
+      },
+      "runs": [
+        {
+          "run_id": "7490cc24-95f2-4e23-8e88-ea9647aaff1d",
+          "events": 508,
+          "unique_event_ids": 508,
+          "customers": 100,
+          "sessions": 100
+        }
+      ]
+    },
+    {
+      "name": "second_batch",
+      "producer": {
+        "attempted": 481,
+        "queued": 481,
+        "acknowledged": 481,
+        "failed": 0,
+        "pending": 0
+      },
+      "consumer": {
+        "received": 481,
+        "inserted": 481,
+        "duplicate": 0,
+        "rejected": 0,
+        "replayed": 0,
+        "committed": 481,
+        "stop_reason": "max_messages"
+      },
+      "runs": [
+        {
+          "run_id": "7490cc24-95f2-4e23-8e88-ea9647aaff1d",
+          "events": 508,
+          "unique_event_ids": 508,
+          "customers": 100,
+          "sessions": 100
+        },
+        {
+          "run_id": "b4d2dc58-37d6-4222-9cae-daa91aae419b",
+          "events": 481,
+          "unique_event_ids": 481,
+          "customers": 100,
+          "sessions": 100
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,22 @@
+dataset_label,run_id,step,stage_display,sessions,from_start_rate,reach_label,transition_display,previous_sessions,dropoff_sessions,dropoff_rate,loss_label
+Historical baseline | 505 events,legacy,1,01  Start onboarding,100,1.0,100   |   100.0%,Start,,,,
+Historical baseline | 505 events,legacy,2,02  Submit profile,89,0.89,89   |   89.0%,01  Start onboarding > Submit profile,100,11,0.11,11   |   11.0%
+Historical baseline | 505 events,legacy,3,03  Submit KYC,84,0.84,84   |   84.0%,02  Submit profile > Submit KYC,89,5,0.056179775280898875,5   |   5.6%
+Historical baseline | 505 events,legacy,4,04  Pass KYC,72,0.72,72   |   72.0%,03  Submit KYC > Pass KYC,84,12,0.14285714285714285,12   |   14.3%
+Historical baseline | 505 events,legacy,5,05  Open account,66,0.66,66   |   66.0%,04  Pass KYC > Open account,72,6,0.08333333333333333,6   |   8.3%
+Historical baseline | 505 events,legacy,6,06  Activate card,56,0.56,56   |   56.0%,05  Open account > Activate card,66,10,0.15151515151515152,10   |   15.2%
+Historical baseline | 505 events,legacy,7,07  First transaction,38,0.38,38   |   38.0%,06  Activate card > First transaction,56,18,0.32142857142857145,18   |   32.1%
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,1,01  Start onboarding,100,1.0,100   |   100.0%,Start,,,,
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,2,02  Submit profile,97,0.97,97   |   97.0%,01  Start onboarding > Submit profile,100,3,0.03,3   |   3.0%
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,3,03  Submit KYC,86,0.86,86   |   86.0%,02  Submit profile > Submit KYC,97,11,0.1134020618556701,11   |   11.3%
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,4,04  Pass KYC,71,0.71,71   |   71.0%,03  Submit KYC > Pass KYC,86,15,0.1744186046511628,15   |   17.4%
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,5,05  Open account,63,0.63,63   |   63.0%,04  Pass KYC > Open account,71,8,0.11267605633802817,8   |   11.3%
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,6,06  Activate card,54,0.54,54   |   54.0%,05  Open account > Activate card,63,9,0.14285714285714285,9   |   14.3%
+Simulation A | seed 42,4a10a289-b783-462b-8614-8011bf8a929f,7,07  First transaction,37,0.37,37   |   37.0%,06  Activate card > First transaction,54,17,0.3148148148148148,17   |   31.5%
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,1,01  Start onboarding,100,1.0,100   |   100.0%,Start,,,,
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,2,02  Submit profile,94,0.94,94   |   94.0%,01  Start onboarding > Submit profile,100,6,0.06,6   |   6.0%
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,3,03  Submit KYC,79,0.79,79   |   79.0%,02  Submit profile > Submit KYC,94,15,0.1595744680851064,15   |   16.0%
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,4,04  Pass KYC,69,0.69,69   |   69.0%,03  Submit KYC > Pass KYC,79,10,0.12658227848101267,10   |   12.7%
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,5,05  Open account,58,0.58,58   |   58.0%,04  Pass KYC > Open account,69,11,0.15942028985507245,11   |   15.9%
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,6,06  Activate card,51,0.51,51   |   51.0%,05  Open account > Activate card,58,7,0.1206896551724138,7   |   12.1%
+Simulation B | seed 7,6fb434c1-139e-4075-9f7a-ea3c13d4552c,7,07  First transaction,30,0.3,30   |   30.0%,06  Activate card > First transaction,51,21,0.4117647058823529,21   |   41.2%

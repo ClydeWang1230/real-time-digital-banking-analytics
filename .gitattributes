@@ -1,0 +1,2 @@
+# The replay fixture checksum covers exact bytes, including line endings.
+examples/p03/** text eol=lf

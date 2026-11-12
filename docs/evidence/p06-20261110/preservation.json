@@ -1,0 +1,8 @@
+{
+  "checked": 120,
+  "changed": [
+    "artifacts\\tableau\\p05-native-fix-v4\\~Digital Banking Onboarding__31076.twbr"
+  ],
+  "missing": [],
+  "explanation": "Only a Tableau temporary recovery file (.twbr) changed; original databases, CSV files and saved workbooks are unchanged."
+}

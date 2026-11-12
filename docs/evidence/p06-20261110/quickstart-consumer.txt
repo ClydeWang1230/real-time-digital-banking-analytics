@@ -1,0 +1,23 @@
+2026-11-10 11:23:10,568 INFO Listening to banking-demo-p06-0c6f3d1d736f; database=<repo>\artifacts\verification\p06-20261110T031536Z\clean_workspace\artifacts\p06-0c6f3d1d736f\events.duckdb
+2026-11-10 11:23:13,839 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=0 event_id=4a244f2e-d344-5b59-9642-bbae0f64f5be error_code=None
+2026-11-10 11:23:13,923 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=1 event_id=0dc7e0d4-9016-580e-9d86-cba87090a6e2 error_code=None
+2026-11-10 11:23:14,007 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=2 event_id=c49ff3b5-dc3a-59c4-b0ad-35a6d1df1d8e error_code=None
+2026-11-10 11:23:14,094 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=3 event_id=a9cb46a1-3f68-580a-adfa-4107509762a4 error_code=None
+2026-11-10 11:23:14,177 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=4 event_id=658b0e57-2129-54a7-b889-62a689c611c8 error_code=None
+2026-11-10 11:23:14,261 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=5 event_id=e5b05870-d019-51f8-be4b-693fdff25fce error_code=None
+2026-11-10 11:23:14,342 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=6 event_id=1a5b62e4-4752-50c6-8939-ef9545e19b57 error_code=None
+2026-11-10 11:23:14,425 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=7 event_id=ff8dc4a0-59da-5b69-a753-fc07ceacc23e error_code=None
+2026-11-10 11:23:14,509 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=8 event_id=1aa4c45c-3ec3-5790-9f42-855721923947 error_code=None
+2026-11-10 11:23:14,587 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=9 event_id=2fcd13b6-2ef9-5aa3-a548-0fca879f395c error_code=None
+2026-11-10 11:23:14,678 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=10 event_id=ddba9688-c2f4-51bf-8844-8a499334eaa6 error_code=None
+2026-11-10 11:23:14,757 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=11 event_id=b0a76ab3-a2d8-57d1-a0e8-cc90f8194fa3 error_code=None
+2026-11-10 11:23:14,841 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=12 event_id=130ab7b7-b782-5e5c-9395-097a0cfcdcce error_code=None
+2026-11-10 11:23:14,919 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=13 event_id=7835e0c7-b2bd-536a-a0d4-e56eff5c8b6a error_code=None
+2026-11-10 11:23:14,992 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=14 event_id=5de31025-ac35-5190-b14f-6e51c6c37e80 error_code=None
+2026-11-10 11:23:15,077 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=15 event_id=7e465cce-43d4-5408-829e-358718559de0 error_code=None
+2026-11-10 11:23:15,156 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=16 event_id=cc4bad35-2075-565b-a2d2-afe4b4179782 error_code=None
+2026-11-10 11:23:15,221 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=17 event_id=08f25eaf-4b57-5999-b7d2-403f64ffe811 error_code=None
+2026-11-10 11:23:15,297 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=18 event_id=c8c1209f-0f15-5c3b-8df1-927c270af692 error_code=None
+2026-11-10 11:23:15,378 INFO outcome=inserted topic=banking-demo-p06-0c6f3d1d736f partition=0 offset=19 event_id=74cbe9f1-55b8-500a-aa78-bc83d3c825f6 error_code=None
+Consumer summary: {"committed": 20, "duplicate": 0, "inserted": 20, "received": 20, "rejected": 0, "replayed": 0, "stop_reason": "max_messages"}
+

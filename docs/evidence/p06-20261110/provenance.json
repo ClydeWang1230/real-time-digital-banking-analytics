@@ -1,0 +1,17 @@
+[
+  {
+    "copy": "simulation.json",
+    "original": "artifacts/verification/p06-20261110T031536Z/clean_workspace/artifacts/verification/p03-20261110T032022Z-8cbc607f/report.json",
+    "original_sha256": "e3216e4a2686e700c885ee500ec78bebd6881f52ac6c954b8609a48d42094292"
+  },
+  {
+    "copy": "ingestion.json",
+    "original": "artifacts/verification/p02-20261110T031832Z-a45976a7/report.json",
+    "original_sha256": "0e976c36b1e2566a73d849fb1ce12d816b780ad8a28a3f19cb230c3f9d808578"
+  },
+  {
+    "copy": "analytics.json",
+    "original": "artifacts/verification/p04-20261110T032520Z-ab1434f5/report.json",
+    "original_sha256": "1eb98fab90fc4447675eb64708a3ddb6538685dda06861fb33d661a4f1430981"
+  }
+]

@@ -1,0 +1,3 @@
+Batch ready: {"directory": "C:\\Users\\kxwang\\Documents\\Github\\real-time-digital-banking-analytics\\artifacts\\verification\\p06-20261110T031536Z\\clean_workspace\\artifacts\\p06-0c6f3d1d736f\\batches\\96c4e73d-8f76-40cc-b9c5-8b9760b57c53", "event_count": 20, "events_sha256": "43b247c228f7803f6b9eba1830d2cb9910aa1371bd3c59452be566e42117c767", "run_id": "96c4e73d-8f76-40cc-b9c5-8b9760b57c53"}
+Producer summary: {"acknowledged": 20, "attempted": 20, "failed": 0, "pending": 0, "queued": 20}
+

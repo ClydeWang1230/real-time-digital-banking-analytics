@@ -1,0 +1,12 @@
+{
+  "snapshots": [
+    "artifacts/verification/p04-20261108T115412Z-17d45672/exports/source_1_all",
+    "artifacts/verification/p04-20261108T115412Z-17d45672/exports/source_2_all"
+  ],
+  "labels": {
+    "legacy": "Historical baseline | 505 events",
+    "4a10a289-b783-462b-8614-8011bf8a929f": "Simulation A | seed 42",
+    "6fb434c1-139e-4075-9f7a-ea3c13d4552c": "Simulation B | seed 7"
+  },
+  "default_run_id": "4a10a289-b783-462b-8614-8011bf8a929f"
+}

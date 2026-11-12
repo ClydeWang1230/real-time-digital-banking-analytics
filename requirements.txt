@@ -1,1 +1,5 @@
-confluent-kafka
+# Runtime baseline: Python 3.11.
+confluent-kafka==2.15.1
+duckdb==1.5.5
+# DuckDB 1.5.5 uses pytz when returning TIMESTAMPTZ values to Python.
+pytz==2026.6

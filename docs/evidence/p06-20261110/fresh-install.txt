@@ -1,0 +1,16 @@
+Collecting confluent-kafka==2.15.1 (from -r requirements.txt (line 2))
+  Using cached confluent_kafka-2.15.1-cp311-cp311-win_amd64.whl.metadata (34 kB)
+Collecting duckdb==1.5.5 (from -r requirements.txt (line 3))
+  Using cached duckdb-1.5.5-cp311-cp311-win_amd64.whl.metadata (4.2 kB)
+Collecting pytz==2026.6 (from -r requirements.txt (line 5))
+  Downloading pytz-2026.6-py2.py3-none-any.whl.metadata (22 kB)
+Using cached confluent_kafka-2.15.1-cp311-cp311-win_amd64.whl (4.6 MB)
+Using cached duckdb-1.5.5-cp311-cp311-win_amd64.whl (13.2 MB)
+Downloading pytz-2026.6-py2.py3-none-any.whl (506 kB)
+   -------------------------------------- 506.3/506.3 kB 647.6 kB/s eta 0:00:00
+Installing collected packages: pytz, duckdb, confluent-kafka
+Successfully installed confluent-kafka-2.15.1 duckdb-1.5.5 pytz-2026.6
+
+[notice] A new release of pip is available: 24.0 -> 26.3
+[notice] To update, run: <repo>\artifacts\verification\p06-20261110T031536Z\clean_workspace\.venv\Scripts\python.exe -m pip install --upgrade pip
+

@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "topic": "banking-p02-20261110t031832z-a45976a7",
+  "output": "<repo>\\artifacts\\verification\\p02-20261110T031832Z-a45976a7",
+  "customers": 100,
+  "expected": {
+    "messages": 518,
+    "unique_events": 508,
+    "duplicates": 3,
+    "rejected": 7
+  },
+  "producer": {
+    "attempted": 518,
+    "queued": 518,
+    "acknowledged": 518,
+    "failed": 0,
+    "pending": 0
+  },
+  "crash": {
+    "exit_code": 73,
+    "committed_offset": -1001,
+    "database": {
+      "raw_events": 1,
+      "rejected_events": 0,
+      "processed_messages": 1,
+      "unique_event_ids": 1,
+      "sessions": 1,
+      "rejection_reasons": {}
+    }
+  },
+  "recovery": {
+    "received": 518,
+    "inserted": 507,
+    "duplicate": 3,
+    "rejected": 7,
+    "replayed": 1,
+    "committed": 518,
+    "stop_reason": "max_messages"
+  },
+  "database": {
+    "raw_events": 508,
+    "rejected_events": 7,
+    "processed_messages": 518,
+    "unique_event_ids": 508,
+    "sessions": 100,
+    "rejection_reasons": {
+      "event_id_conflict": 1,
+      "invalid_event_time": 1,
+      "invalid_json": 1,
+      "invalid_utf8": 1,
+      "missing_fields": 1,
+      "null_payload": 1,
+      "unknown_event_type": 1
+    }
+  },
+  "full_replay": {
+    "received": 518,
+    "inserted": 0,
+    "duplicate": 0,
+    "rejected": 0,
+    "replayed": 518,
+    "committed": 518,
+    "stop_reason": "max_messages"
+  },
+  "database_failure": {
+    "failed_attempt": {
+      "received": 1,
+      "inserted": 0,
+      "duplicate": 0,
+      "rejected": 0,
+      "replayed": 0,
+      "committed": 0,
+      "stop_reason": "error"
+    },
+    "retry": {
+      "received": 518,
+      "inserted": 508,
+      "duplicate": 3,
+      "rejected": 7,
+      "replayed": 0,
+      "committed": 518,
+      "stop_reason": "max_messages"
+    }
+  }
+}
+

@@ -1,0 +1,1542 @@
+<?xml version='1.0' encoding='utf-8'?>
+<workbook original-version="18.1" source-build="2026.1.0" source-platform="win" version="18.1">
+  <preferences>
+    <preference name="ui.encoding.shelf.height" value="24" />
+    <preference name="ui.shelf.height" value="26" />
+  </preferences>
+  <datasources>
+    <datasource hasconnection="false" inline="true" name="Parameters" version="18.1">
+      <aliases enabled="yes" />
+      <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+        <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+        <members>
+          <member value="&quot;Historical baseline | 505 events&quot;" />
+          <member value="&quot;Simulation A | seed 42&quot;" />
+          <member value="&quot;Simulation B | seed 7&quot;" />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption="Batch KPIs" inline="true" name="textscan.kpis" version="18.1">
+      <connection class="textscan" directory="Data" filename="kpis.csv" password="" server="">
+        <relation name="kpis.csv" table="[kpis#csv]" type="table">
+          <columns character-set="UTF-8" header="yes" locale="en_US" separator=",">
+            <column datatype="string" name="dataset_label" ordinal="0" />
+            <column datatype="string" name="run_id" ordinal="1" />
+            <column datatype="integer" name="started_sessions" ordinal="2" />
+            <column datatype="integer" name="account_opened_sessions" ordinal="3" />
+            <column datatype="integer" name="first_transaction_sessions" ordinal="4" />
+            <column datatype="integer" name="not_completed_sessions" ordinal="5" />
+            <column datatype="real" name="account_rate" ordinal="6" />
+            <column datatype="real" name="transaction_rate" ordinal="7" />
+            <column datatype="string" name="account_display" ordinal="8" />
+            <column datatype="string" name="transaction_display" ordinal="9" />
+            <column datatype="string" name="started_detail" ordinal="10" />
+            <column datatype="string" name="account_detail" ordinal="11" />
+            <column datatype="string" name="transaction_detail" ordinal="12" />
+            <column datatype="string" name="quality_status" ordinal="13" />
+            <column datatype="integer" name="quality_warnings" ordinal="14" />
+            <column datatype="string" name="context_label" ordinal="15" />
+            <column datatype="string" name="quality_label" ordinal="16" />
+            <column datatype="string" name="insight" ordinal="17" />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+      <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+      <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Not Completed Sessions" datatype="integer" name="[not_completed_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Account Rate" datatype="real" name="[account_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+      <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+      <column caption="Account Display" datatype="string" name="[account_display]" role="dimension" type="nominal" />
+      <column caption="Transaction Display" datatype="string" name="[transaction_display]" role="dimension" type="nominal" />
+      <column caption="Started Detail" datatype="string" name="[started_detail]" role="dimension" type="nominal" />
+      <column caption="Account Detail" datatype="string" name="[account_detail]" role="dimension" type="nominal" />
+      <column caption="Transaction Detail" datatype="string" name="[transaction_detail]" role="dimension" type="nominal" />
+      <column caption="Quality Status" datatype="string" name="[quality_status]" role="dimension" type="nominal" />
+      <column caption="Quality Warnings" datatype="integer" name="[quality_warnings]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Context Label" datatype="string" name="[context_label]" role="dimension" type="nominal" />
+      <column caption="Quality Label" datatype="string" name="[quality_label]" role="dimension" type="nominal" />
+      <column caption="Insight" datatype="string" name="[insight]" role="dimension" type="nominal" />
+      <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+      </column>
+    </datasource>
+    <datasource caption="Ordered funnel" inline="true" name="textscan.funnel" version="18.1">
+      <connection class="textscan" directory="Data" filename="funnel.csv" password="" server="">
+        <relation name="funnel.csv" table="[funnel#csv]" type="table">
+          <columns character-set="UTF-8" header="yes" locale="en_US" separator=",">
+            <column datatype="string" name="dataset_label" ordinal="0" />
+            <column datatype="string" name="run_id" ordinal="1" />
+            <column datatype="integer" name="step" ordinal="2" />
+            <column datatype="string" name="stage_display" ordinal="3" />
+            <column datatype="integer" name="sessions" ordinal="4" />
+            <column datatype="real" name="from_start_rate" ordinal="5" />
+            <column datatype="string" name="reach_label" ordinal="6" />
+            <column datatype="string" name="transition_display" ordinal="7" />
+            <column datatype="integer" name="previous_sessions" ordinal="8" />
+            <column datatype="integer" name="dropoff_sessions" ordinal="9" />
+            <column datatype="real" name="dropoff_rate" ordinal="10" />
+            <column datatype="string" name="loss_label" ordinal="11" />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+      <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+      <column caption="Step" datatype="integer" name="[step]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Stage Display" datatype="string" name="[stage_display]" role="dimension" type="nominal" />
+      <column caption="Sessions" datatype="integer" name="[sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="From Start Rate" datatype="real" name="[from_start_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+      <column caption="Reach Label" datatype="string" name="[reach_label]" role="dimension" type="nominal" />
+      <column caption="Transition Display" datatype="string" name="[transition_display]" role="dimension" type="nominal" />
+      <column caption="Previous Sessions" datatype="integer" name="[previous_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Dropoff Sessions" datatype="integer" name="[dropoff_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Dropoff Rate" datatype="real" name="[dropoff_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+      <column caption="Loss Label" datatype="string" name="[loss_label]" role="dimension" type="nominal" />
+      <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+      </column>
+      <column datatype="boolean" name="[Has previous stage]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[step] &gt; 1" />
+      </column>
+    </datasource>
+    <datasource caption="Channel comparison" inline="true" name="textscan.channels" version="18.1">
+      <connection class="textscan" directory="Data" filename="channels.csv" password="" server="">
+        <relation name="channels.csv" table="[channels#csv]" type="table">
+          <columns character-set="UTF-8" header="yes" locale="en_US" separator=",">
+            <column datatype="string" name="dataset_label" ordinal="0" />
+            <column datatype="string" name="run_id" ordinal="1" />
+            <column datatype="string" name="channel" ordinal="2" />
+            <column datatype="integer" name="started_sessions" ordinal="3" />
+            <column datatype="integer" name="account_opened_sessions" ordinal="4" />
+            <column datatype="integer" name="first_transaction_sessions" ordinal="5" />
+            <column datatype="real" name="transaction_rate" ordinal="6" />
+            <column datatype="string" name="channel_label" ordinal="7" />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled="yes" />
+      <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+      <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+      <column caption="Channel" datatype="string" name="[channel]" role="dimension" type="nominal" />
+      <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+      <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+      <column caption="Channel Label" datatype="string" name="[channel_label]" role="dimension" type="nominal" />
+      <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+        <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+      </column>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="Started sessions">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">Started sessions</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Batch KPIs" name="textscan.kpis" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.kpis">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Not Completed Sessions" datatype="integer" name="[not_completed_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Rate" datatype="real" name="[account_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Account Display" datatype="string" name="[account_display]" role="dimension" type="nominal" />
+            <column caption="Transaction Display" datatype="string" name="[transaction_display]" role="dimension" type="nominal" />
+            <column caption="Started Detail" datatype="string" name="[started_detail]" role="dimension" type="nominal" />
+            <column caption="Account Detail" datatype="string" name="[account_detail]" role="dimension" type="nominal" />
+            <column caption="Transaction Detail" datatype="string" name="[transaction_detail]" role="dimension" type="nominal" />
+            <column caption="Quality Status" datatype="string" name="[quality_status]" role="dimension" type="nominal" />
+            <column caption="Quality Warnings" datatype="integer" name="[quality_warnings]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Context Label" datatype="string" name="[context_label]" role="dimension" type="nominal" />
+            <column caption="Quality Label" datatype="string" name="[quality_label]" role="dimension" type="nominal" />
+            <column caption="Insight" datatype="string" name="[insight]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[started_detail]" derivation="None" name="[none:started_detail:nk]" pivot="key" type="nominal" />
+            <column-instance column="[started_sessions]" derivation="Sum" name="[sum:started_sessions:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.kpis].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.kpis].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="12" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[textscan.kpis].[sum:started_sessions:qk]" />
+              <text column="[textscan.kpis].[none:started_detail:nk]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">STARTED SESSIONS
+</run>
+                <run fontname="Arial" fontsize="32" fontcolor="#17324D" bold="true">&lt;[textscan.kpis].[sum:started_sessions:qk]&gt;</run>
+                <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">
+&lt;[textscan.kpis].[none:started_detail:nk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#087F83" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <tooltip-style tooltip-mode="none" />
+      </table>
+    </worksheet>
+    <worksheet name="Account conversion">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">Account conversion</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Batch KPIs" name="textscan.kpis" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.kpis">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Not Completed Sessions" datatype="integer" name="[not_completed_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Rate" datatype="real" name="[account_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Account Display" datatype="string" name="[account_display]" role="dimension" type="nominal" />
+            <column caption="Transaction Display" datatype="string" name="[transaction_display]" role="dimension" type="nominal" />
+            <column caption="Started Detail" datatype="string" name="[started_detail]" role="dimension" type="nominal" />
+            <column caption="Account Detail" datatype="string" name="[account_detail]" role="dimension" type="nominal" />
+            <column caption="Transaction Detail" datatype="string" name="[transaction_detail]" role="dimension" type="nominal" />
+            <column caption="Quality Status" datatype="string" name="[quality_status]" role="dimension" type="nominal" />
+            <column caption="Quality Warnings" datatype="integer" name="[quality_warnings]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Context Label" datatype="string" name="[context_label]" role="dimension" type="nominal" />
+            <column caption="Quality Label" datatype="string" name="[quality_label]" role="dimension" type="nominal" />
+            <column caption="Insight" datatype="string" name="[insight]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[account_detail]" derivation="None" name="[none:account_detail:nk]" pivot="key" type="nominal" />
+            <column-instance column="[account_display]" derivation="None" name="[none:account_display:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.kpis].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.kpis].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="12" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[textscan.kpis].[none:account_display:nk]" />
+              <text column="[textscan.kpis].[none:account_detail:nk]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">ACCOUNT OPENING
+</run>
+                <run fontname="Arial" fontsize="32" fontcolor="#087F83" bold="true">&lt;[textscan.kpis].[none:account_display:nk]&gt;</run>
+                <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">
+&lt;[textscan.kpis].[none:account_detail:nk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#087F83" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <tooltip-style tooltip-mode="none" />
+      </table>
+    </worksheet>
+    <worksheet name="First transaction">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">First transaction</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Batch KPIs" name="textscan.kpis" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.kpis">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Not Completed Sessions" datatype="integer" name="[not_completed_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Rate" datatype="real" name="[account_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Account Display" datatype="string" name="[account_display]" role="dimension" type="nominal" />
+            <column caption="Transaction Display" datatype="string" name="[transaction_display]" role="dimension" type="nominal" />
+            <column caption="Started Detail" datatype="string" name="[started_detail]" role="dimension" type="nominal" />
+            <column caption="Account Detail" datatype="string" name="[account_detail]" role="dimension" type="nominal" />
+            <column caption="Transaction Detail" datatype="string" name="[transaction_detail]" role="dimension" type="nominal" />
+            <column caption="Quality Status" datatype="string" name="[quality_status]" role="dimension" type="nominal" />
+            <column caption="Quality Warnings" datatype="integer" name="[quality_warnings]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Context Label" datatype="string" name="[context_label]" role="dimension" type="nominal" />
+            <column caption="Quality Label" datatype="string" name="[quality_label]" role="dimension" type="nominal" />
+            <column caption="Insight" datatype="string" name="[insight]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[transaction_detail]" derivation="None" name="[none:transaction_detail:nk]" pivot="key" type="nominal" />
+            <column-instance column="[transaction_display]" derivation="None" name="[none:transaction_display:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.kpis].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.kpis].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="12" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[textscan.kpis].[none:transaction_display:nk]" />
+              <text column="[textscan.kpis].[none:transaction_detail:nk]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">FIRST TRANSACTION
+</run>
+                <run fontname="Arial" fontsize="32" fontcolor="#087F83" bold="true">&lt;[textscan.kpis].[none:transaction_display:nk]&gt;</run>
+                <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">
+&lt;[textscan.kpis].[none:transaction_detail:nk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#087F83" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <tooltip-style tooltip-mode="none" />
+      </table>
+    </worksheet>
+    <worksheet name="Not completed">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">Not completed</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Batch KPIs" name="textscan.kpis" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.kpis">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Not Completed Sessions" datatype="integer" name="[not_completed_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Rate" datatype="real" name="[account_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Account Display" datatype="string" name="[account_display]" role="dimension" type="nominal" />
+            <column caption="Transaction Display" datatype="string" name="[transaction_display]" role="dimension" type="nominal" />
+            <column caption="Started Detail" datatype="string" name="[started_detail]" role="dimension" type="nominal" />
+            <column caption="Account Detail" datatype="string" name="[account_detail]" role="dimension" type="nominal" />
+            <column caption="Transaction Detail" datatype="string" name="[transaction_detail]" role="dimension" type="nominal" />
+            <column caption="Quality Status" datatype="string" name="[quality_status]" role="dimension" type="nominal" />
+            <column caption="Quality Warnings" datatype="integer" name="[quality_warnings]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Context Label" datatype="string" name="[context_label]" role="dimension" type="nominal" />
+            <column caption="Quality Label" datatype="string" name="[quality_label]" role="dimension" type="nominal" />
+            <column caption="Insight" datatype="string" name="[insight]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[not_completed_sessions]" derivation="Sum" name="[sum:not_completed_sessions:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.kpis].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.kpis].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="12" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[textscan.kpis].[sum:not_completed_sessions:qk]" />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">NOT YET COMPLETED
+</run>
+                <run fontname="Arial" fontsize="32" fontcolor="#C37725" bold="true">&lt;[textscan.kpis].[sum:not_completed_sessions:qk]&gt;</run>
+                <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">
+In this saved snapshot</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#087F83" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <tooltip-style tooltip-mode="none" />
+      </table>
+    </worksheet>
+    <worksheet name="Ordered onboarding funnel">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">01   Ordered onboarding funnel</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Ordered funnel" name="textscan.funnel" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.funnel">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Step" datatype="integer" name="[step]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Stage Display" datatype="string" name="[stage_display]" role="dimension" type="nominal" />
+            <column caption="Sessions" datatype="integer" name="[sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="From Start Rate" datatype="real" name="[from_start_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Reach Label" datatype="string" name="[reach_label]" role="dimension" type="nominal" />
+            <column caption="Transition Display" datatype="string" name="[transition_display]" role="dimension" type="nominal" />
+            <column caption="Previous Sessions" datatype="integer" name="[previous_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Dropoff Sessions" datatype="integer" name="[dropoff_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Dropoff Rate" datatype="real" name="[dropoff_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Loss Label" datatype="string" name="[loss_label]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column datatype="boolean" name="[Has previous stage]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[step] &gt; 1" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[reach_label]" derivation="None" name="[none:reach_label:nk]" pivot="key" type="nominal" />
+            <column-instance column="[sessions]" derivation="Sum" name="[sum:sessions:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[stage_display]" derivation="None" name="[none:stage_display:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.funnel].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.funnel].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="12" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+            <format attr="width" field="[textscan.funnel].[none:stage_display:nk]" value="200" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[textscan.funnel].[none:reach_label:nk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#8BCDC3" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[textscan.funnel].[none:stage_display:nk]</rows>
+        <cols>[textscan.funnel].[sum:sessions:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Stage drop-off">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">02   Sessions not progressing</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Ordered funnel" name="textscan.funnel" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.funnel">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Step" datatype="integer" name="[step]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Stage Display" datatype="string" name="[stage_display]" role="dimension" type="nominal" />
+            <column caption="Sessions" datatype="integer" name="[sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="From Start Rate" datatype="real" name="[from_start_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Reach Label" datatype="string" name="[reach_label]" role="dimension" type="nominal" />
+            <column caption="Transition Display" datatype="string" name="[transition_display]" role="dimension" type="nominal" />
+            <column caption="Previous Sessions" datatype="integer" name="[previous_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Dropoff Sessions" datatype="integer" name="[dropoff_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Dropoff Rate" datatype="real" name="[dropoff_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Loss Label" datatype="string" name="[loss_label]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column datatype="boolean" name="[Has previous stage]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[step] &gt; 1" />
+            </column>
+            <column-instance column="[Has previous stage]" derivation="None" name="[none:Has previous stage:nk]" pivot="key" type="nominal" />
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[dropoff_sessions]" derivation="Sum" name="[sum:dropoff_sessions:qk]" pivot="key" type="quantitative" />
+            <column-instance column="[loss_label]" derivation="None" name="[none:loss_label:nk]" pivot="key" type="nominal" />
+            <column-instance column="[transition_display]" derivation="None" name="[none:transition_display:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.funnel].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <filter class="categorical" column="[textscan.funnel].[none:Has previous stage:nk]">
+            <groupfilter function="member" level="[none:Has previous stage:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.funnel].[none:Selected batch:nk]</column>
+            <column>[textscan.funnel].[none:Has previous stage:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="12" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+            <format attr="width" field="[textscan.funnel].[none:transition_display:nk]" value="300" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[textscan.funnel].[none:loss_label:nk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#E8B977" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[textscan.funnel].[none:transition_display:nk]</rows>
+        <cols>[textscan.funnel].[sum:dropoff_sessions:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Channel conversion">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">03   First-transaction conversion by channel</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Channel comparison" name="textscan.channels" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.channels">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Channel" datatype="string" name="[channel]" role="dimension" type="nominal" />
+            <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Channel Label" datatype="string" name="[channel_label]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[channel]" derivation="None" name="[none:channel:nk]" pivot="key" type="nominal" />
+            <column-instance column="[channel_label]" derivation="None" name="[none:channel_label:nk]" pivot="key" type="nominal" />
+            <column-instance column="[transaction_rate]" derivation="Sum" name="[sum:transaction_rate:qk]" pivot="key" type="quantitative" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.channels].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.channels].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="12" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+            <format attr="width" field="[textscan.channels].[none:channel:nk]" value="120" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" scope="rows" value="false" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Bar" />
+            <encodings>
+              <text column="[textscan.channels].[none:channel_label:nk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#8CB4D3" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[textscan.channels].[none:channel:nk]</rows>
+        <cols>[textscan.channels].[sum:transaction_rate:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name="Observed bottleneck">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">Observed bottleneck</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Batch KPIs" name="textscan.kpis" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.kpis">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Not Completed Sessions" datatype="integer" name="[not_completed_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Rate" datatype="real" name="[account_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Account Display" datatype="string" name="[account_display]" role="dimension" type="nominal" />
+            <column caption="Transaction Display" datatype="string" name="[transaction_display]" role="dimension" type="nominal" />
+            <column caption="Started Detail" datatype="string" name="[started_detail]" role="dimension" type="nominal" />
+            <column caption="Account Detail" datatype="string" name="[account_detail]" role="dimension" type="nominal" />
+            <column caption="Transaction Detail" datatype="string" name="[transaction_detail]" role="dimension" type="nominal" />
+            <column caption="Quality Status" datatype="string" name="[quality_status]" role="dimension" type="nominal" />
+            <column caption="Quality Warnings" datatype="integer" name="[quality_warnings]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Context Label" datatype="string" name="[context_label]" role="dimension" type="nominal" />
+            <column caption="Quality Label" datatype="string" name="[quality_label]" role="dimension" type="nominal" />
+            <column caption="Insight" datatype="string" name="[insight]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[insight]" derivation="None" name="[none:insight:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.kpis].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.kpis].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="12" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[textscan.kpis].[none:insight:nk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#087F83" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <tooltip-style tooltip-mode="none" />
+      </table>
+    </worksheet>
+    <worksheet name="Dataset context">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">Dataset context</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Batch KPIs" name="textscan.kpis" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.kpis">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Not Completed Sessions" datatype="integer" name="[not_completed_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Rate" datatype="real" name="[account_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Account Display" datatype="string" name="[account_display]" role="dimension" type="nominal" />
+            <column caption="Transaction Display" datatype="string" name="[transaction_display]" role="dimension" type="nominal" />
+            <column caption="Started Detail" datatype="string" name="[started_detail]" role="dimension" type="nominal" />
+            <column caption="Account Detail" datatype="string" name="[account_detail]" role="dimension" type="nominal" />
+            <column caption="Transaction Detail" datatype="string" name="[transaction_detail]" role="dimension" type="nominal" />
+            <column caption="Quality Status" datatype="string" name="[quality_status]" role="dimension" type="nominal" />
+            <column caption="Quality Warnings" datatype="integer" name="[quality_warnings]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Context Label" datatype="string" name="[context_label]" role="dimension" type="nominal" />
+            <column caption="Quality Label" datatype="string" name="[quality_label]" role="dimension" type="nominal" />
+            <column caption="Insight" datatype="string" name="[insight]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[context_label]" derivation="None" name="[none:context_label:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.kpis].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.kpis].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[textscan.kpis].[none:context_label:nk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#087F83" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <tooltip-style tooltip-mode="none" />
+      </table>
+    </worksheet>
+    <worksheet name="Quality status">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">Quality status</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption="Batch KPIs" name="textscan.kpis" />
+            <datasource name="Parameters" />
+          </datasources>
+          <datasource-dependencies datasource="Parameters">
+            <column caption="Select dataset" datatype="string" name="[Batch]" param-domain-type="list" role="measure" type="nominal" value="&quot;Simulation A | seed 42&quot;">
+              <calculation class="tableau" formula="&quot;Simulation A | seed 42&quot;" />
+              <members>
+                <member value="&quot;Historical baseline | 505 events&quot;" />
+                <member value="&quot;Simulation A | seed 42&quot;" />
+                <member value="&quot;Simulation B | seed 7&quot;" />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource="textscan.kpis">
+            <column caption="Dataset Label" datatype="string" name="[dataset_label]" role="dimension" type="nominal" />
+            <column caption="Run Id" datatype="string" name="[run_id]" role="dimension" type="nominal" />
+            <column caption="Started Sessions" datatype="integer" name="[started_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Opened Sessions" datatype="integer" name="[account_opened_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="First Transaction Sessions" datatype="integer" name="[first_transaction_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Not Completed Sessions" datatype="integer" name="[not_completed_sessions]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Account Rate" datatype="real" name="[account_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Transaction Rate" datatype="real" name="[transaction_rate]" role="measure" type="quantitative" default-format="p0.0%" />
+            <column caption="Account Display" datatype="string" name="[account_display]" role="dimension" type="nominal" />
+            <column caption="Transaction Display" datatype="string" name="[transaction_display]" role="dimension" type="nominal" />
+            <column caption="Started Detail" datatype="string" name="[started_detail]" role="dimension" type="nominal" />
+            <column caption="Account Detail" datatype="string" name="[account_detail]" role="dimension" type="nominal" />
+            <column caption="Transaction Detail" datatype="string" name="[transaction_detail]" role="dimension" type="nominal" />
+            <column caption="Quality Status" datatype="string" name="[quality_status]" role="dimension" type="nominal" />
+            <column caption="Quality Warnings" datatype="integer" name="[quality_warnings]" role="measure" type="quantitative" default-format="n#,##0" />
+            <column caption="Context Label" datatype="string" name="[context_label]" role="dimension" type="nominal" />
+            <column caption="Quality Label" datatype="string" name="[quality_label]" role="dimension" type="nominal" />
+            <column caption="Insight" datatype="string" name="[insight]" role="dimension" type="nominal" />
+            <column caption="Selected dataset" datatype="boolean" name="[Selected batch]" role="dimension" type="nominal">
+              <calculation class="tableau" formula="[dataset_label] = [Parameters].[Batch]" />
+            </column>
+            <column-instance column="[Selected batch]" derivation="None" name="[none:Selected batch:nk]" pivot="key" type="nominal" />
+            <column-instance column="[quality_label]" derivation="None" name="[none:quality_label:nk]" pivot="key" type="nominal" />
+          </datasource-dependencies>
+          <filter class="categorical" column="[textscan.kpis].[none:Selected batch:nk]">
+            <groupfilter function="member" level="[none:Selected batch:nk]" member="true" />
+          </filter>
+          <slices>
+            <column>[textscan.kpis].[none:Selected batch:nk]</column>
+          </slices>
+          <aggregation value="true" />
+        </view>
+        <style>
+          <style-rule element="worksheet">
+            <format attr="display-field-labels" value="false" />
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="cell">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+            <format attr="text-align" value="left" />
+          </style-rule>
+          <style-rule element="header">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="label">
+            <format attr="font-family" value="Arial" />
+            <format attr="font-size" value="10" />
+            <format attr="color" value="#17324D" />
+          </style-rule>
+          <style-rule element="pane">
+            <format attr="background-color" value="#FFFFFF" />
+          </style-rule>
+          <style-rule element="gridline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="zeroline">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+          <style-rule element="table-div">
+            <format attr="line-visibility" value="off" />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option="selection-relaxation-disallow">
+            <view>
+              <breakdown value="auto" />
+            </view>
+            <mark class="Text" />
+            <encodings>
+              <text column="[textscan.kpis].[none:quality_label:nk]" />
+            </encodings>
+            <style>
+              <style-rule element="mark">
+                <format attr="mark-color" value="#087F83" />
+                <format attr="mark-labels-show" value="true" />
+                <format attr="mark-labels-cull" value="false" />
+                <format attr="size" value="1" />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <tooltip-style tooltip-mode="none" />
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name="Onboarding Overview">
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontname="Arial" fontsize="22" fontcolor="#17324D" bold="true">Digital banking | Onboarding performance</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element="dashboard">
+          <format attr="background-color" value="#F1F5F8" />
+        </style-rule>
+      </style>
+      <size maxheight="1160" maxwidth="1760" minheight="1160" minwidth="1760" sizing-mode="fixed" />
+      <zones>
+        <zone id="1" x="1364" y="690" w="59091" h="8966" type-v2="text">
+          <formatted-text>
+            <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="true">DIGITAL BANKING
+</run>
+            <run fontname="Arial" fontsize="25" fontcolor="#17324D" bold="true">Onboarding performance</run>
+          </formatted-text>
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="4" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="2" x="65909" y="2069" w="32727" h="5517" type-v2="paramctrl" param="[Parameters].[Batch]" mode="compact" custom-title="true">
+          <formatted-text>
+            <run fontname="Arial" fontsize="10" fontcolor="#63758A" bold="false">Select dataset</run>
+          </formatted-text>
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="4" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="3" x="1364" y="10000" w="97273" h="2759" name="Dataset context" show-title="false">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="4" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="4" x="1364" y="14138" w="23295" h="13793" name="Started sessions" show-title="false">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="8" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="5" x="26023" y="14138" w="23295" h="13793" name="Account conversion" show-title="false">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="8" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="6" x="50682" y="14138" w="23295" h="13793" name="First transaction" show-title="false">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="8" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="7" x="75341" y="14138" w="23295" h="13793" name="Not completed" show-title="false">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="8" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="8" x="1364" y="29655" w="48295" h="35345" name="Ordered onboarding funnel" show-title="true">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="12" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="9" x="51023" y="29655" w="47614" h="35345" name="Stage drop-off" show-title="true">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="12" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="10" x="1364" y="65517" w="97273" h="3448" type-v2="text">
+          <formatted-text>
+            <run fontname="Arial" fontsize="9" fontcolor="#63758A" bold="false">Funnel labels: sessions | % of starts.   Drop-off labels: sessions | % of the previous stage.   KYC stage requires a pass.</run>
+          </formatted-text>
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="4" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="11" x="1364" y="69828" w="48295" h="21897" name="Channel conversion" show-title="true">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="12" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="12" x="51023" y="69828" w="47614" h="4138" type-v2="text">
+          <formatted-text>
+            <run fontname="Arial" fontsize="13" fontcolor="#17324D" bold="true">04   Observed bottleneck</run>
+          </formatted-text>
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="8" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="13" x="51023" y="73966" w="47614" h="17759" name="Observed bottleneck" show-title="false">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="12" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="14" x="1364" y="92759" w="97273" h="2672" name="Quality status" show-title="false">
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="4" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+        <zone id="15" x="1364" y="95345" w="97273" h="4655" type-v2="text">
+          <formatted-text>
+            <run fontname="Arial" fontsize="9" fontcolor="#63758A" bold="false">SYNTHETIC DATA  |  Batch snapshot, not a live feed.  Incomplete does not imply permanent abandonment.
+Channel labels show conversion | transactions / starts. Differences are descriptive, not causal.</run>
+          </formatted-text>
+          <zone-style>
+            <format attr="border-style" value="none" />
+            <format attr="border-width" value="0" />
+            <format attr="margin" value="0" />
+            <format attr="padding" value="2" />
+            <format attr="background-color" value="#FFFFFF" />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class="dashboard" maximized="true" name="Onboarding Overview">
+      <viewpoints>
+        <viewpoint name="Started sessions">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Account conversion">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="First transaction">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Not completed">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Ordered onboarding funnel">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Stage drop-off">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Channel conversion">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Observed bottleneck">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Dataset context">
+          <zoom type="entire-view" />
+        </viewpoint>
+        <viewpoint name="Quality status">
+          <zoom type="entire-view" />
+        </viewpoint>
+      </viewpoints>
+      <active id="-1" />
+    </window>
+  </windows>
+</workbook>

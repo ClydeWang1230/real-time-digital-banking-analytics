@@ -1,0 +1,67 @@
+Database: <repo>\artifacts\verification\p06-20261110T031536Z\clean_workspace\artifacts\p06-0c6f3d1d736f\events.duckdb
+Selection: {"legacy_only": false, "mode": "all_runs_separately", "run_id": null}
+
+=== 01_data_quality_checks.sql ===
+scope | run_id | check_name | severity | unit | affected_count | status
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | conflicting_event_ids | error | event IDs | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | conflicting_run_metadata | error | extra versions | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | duplicate_event_rows | warning | rows | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | empty_dataset | warning | datasets | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | excluded_sessions | error | sessions | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | inconsistent_sessions | error | sessions | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | invalid_batch_metadata | error | rows | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | invalid_event_fields | error | rows | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | invalid_event_times | error | rows | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | missing_customer_ids | error | rows | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | missing_event_ids | error | rows | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | missing_session_ids | error | rows | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | orphan_sessions | error | sessions | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | repeated_stage_occurrences | warning | session-stage pairs | 0 | PASS
+selected_run | 96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | stage_order_violations | error | events | 0 | PASS
+
+=== 02_event_counts_by_type.sql ===
+run_id | event_type | event_count | unique_event_ids | sessions_with_event | invalid_rows
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | onboarding_started | 5 | 5 | 5 | 0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | profile_submitted | 4 | 4 | 4 | 0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | kyc_submitted | 4 | 4 | 4 | 0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | kyc_verification_completed | 2 | 2 | 2 | 0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | account_opened | 2 | 2 | 2 | 0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | card_activated | 2 | 2 | 2 | 0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | first_transaction_completed | 1 | 1 | 1 | 0
+
+=== 03_onboarding_funnel.sql ===
+run_id | step | stage | stage_label | sessions | started_sessions | previous_sessions | conversion_from_start_pct | conversion_from_previous_pct | dropoff_sessions | dropoff_from_previous_pct
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 1 | onboarding_started | Onboarding started | 5 | 5 | NULL | 100.0 | NULL | NULL | NULL
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 2 | profile_submitted | Profile submitted | 4 | 5 | 5 | 80.0 | 80.0 | 1 | 20.0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 3 | kyc_submitted | KYC submitted | 4 | 5 | 4 | 80.0 | 100.0 | 0 | 0.0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 4 | kyc_verification_completed | KYC passed | 2 | 5 | 4 | 40.0 | 50.0 | 2 | 50.0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 5 | account_opened | Account opened | 2 | 5 | 2 | 40.0 | 100.0 | 0 | 0.0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 6 | card_activated | Card activated | 2 | 5 | 2 | 40.0 | 100.0 | 0 | 0.0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 7 | first_transaction_completed | First transaction completed | 1 | 5 | 2 | 20.0 | 50.0 | 1 | 50.0
+
+=== 04_onboarding_kpis.sql ===
+run_id | event_rows | unique_event_ids | observed_customers | observed_sessions | excluded_sessions | orphan_sessions | started_sessions | kyc_submitted_sessions | kyc_passed_sessions | sessions_with_kyc_failure | account_opened_sessions | card_activated_sessions | first_transaction_sessions | not_completed_sessions | kyc_pass_from_submission_pct | account_opening_conversion_pct | first_transaction_conversion_pct | account_to_first_transaction_pct | avg_minutes_to_account_opened | median_minutes_to_account_opened | avg_minutes_to_first_transaction | median_minutes_to_first_transaction
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 20 | 20 | 5 | 5 | 0 | 0 | 5 | 4 | 2 | 0 | 2 | 2 | 1 | 4 | 50.0 | 40.0 | 20.0 | 50.0 | 12.0 | 12.0 | 20.0 | 20.0
+
+=== 05_channel_performance.sql ===
+run_id | channel | started_sessions | account_opened_sessions | first_transaction_sessions | avg_minutes_to_first_transaction | not_completed_sessions | account_opening_conversion_pct | first_transaction_conversion_pct
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | branch | 3 | 2 | 1 | 20.0 | 2 | 66.7 | 33.3
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | mobile_app | 1 | 0 | 0 | NULL | 1 | 0.0 | 0.0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | web | 1 | 0 | 0 | NULL | 1 | 0.0 | 0.0
+
+=== 06_session_journeys.sql ===
+run_id | session_id | customer_id | channel | device_type | raw_event_rows | is_eligible | exclusion_reason | journey_status | stages_reached | last_valid_stage | started_at | profile_at | kyc_submitted_at | kyc_passed_at | kyc_failed_at | account_opened_at | card_activated_at | first_transaction_at | minutes_to_account_opened | minutes_to_first_transaction
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 229e7dac-e382-5d63-a5b4-bb889b45b4ab | C_1cbd778d8242533199a4f62e2e14d877 | branch | branch_terminal | 6 | True |  | incomplete | 6 | Card activated | 2026-11-08T00:03:00+00:00 | 2026-11-08T00:06:00+00:00 | 2026-11-08T00:08:00+00:00 | 2026-11-08T00:13:00+00:00 | NULL | 2026-11-08T00:15:00+00:00 | 2026-11-08T00:18:00+00:00 | NULL | 12.0 | NULL
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 4866392e-eb97-578a-b9fd-cf0ffe6aea95 | C_faa54c4eabb95da8b3f7307d3bbf68ce | branch | branch_terminal | 7 | True |  | completed | 7 | First transaction completed | 2026-11-08T00:02:00+00:00 | 2026-11-08T00:05:00+00:00 | 2026-11-08T00:07:00+00:00 | 2026-11-08T00:12:00+00:00 | NULL | 2026-11-08T00:14:00+00:00 | 2026-11-08T00:17:00+00:00 | 2026-11-08T00:22:00+00:00 | 12.0 | 20.0
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 727fa15d-b705-5db7-90c1-ca4f35c8df8c | C_26003226089e5e739bd9e72319514196 | branch | branch_terminal | 1 | True |  | incomplete | 1 | Onboarding started | 2026-11-08T00:00:00+00:00 | NULL | NULL | NULL | NULL | NULL | NULL | NULL | NULL | NULL
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | 9c4c0bba-eadd-527c-961c-a5632698f776 | C_d1fa5233666c5dc2b4e8ecd609110694 | web | desktop | 3 | True |  | incomplete | 3 | KYC submitted | 2026-11-08T00:01:00+00:00 | 2026-11-08T00:04:00+00:00 | 2026-11-08T00:06:00+00:00 | NULL | NULL | NULL | NULL | NULL | NULL | NULL
+96c4e73d-8f76-40cc-b9c5-8b9760b57c53 | f68855ab-190f-5aad-99c1-4949012823d1 | C_5472c36afdd05e96a41614635a0fc3ca | mobile_app | ios | 3 | True |  | incomplete | 3 | KYC submitted | 2026-11-08T00:04:00+00:00 | 2026-11-08T00:07:00+00:00 | 2026-11-08T00:09:00+00:00 | NULL | NULL | NULL | NULL | NULL | NULL | NULL
+
+=== 07_ingestion_health.sql ===
+scope | metric | value | available
+database | duplicate_event_deliveries | 0 | True
+database | processed_positions | 20 | True
+database | raw_event_rows | 20 | True
+database | rejected_messages | 0 | True
+CSV snapshot: <repo>\artifacts\verification\p06-20261110T031536Z\clean_workspace\artifacts\p06-0c6f3d1d736f\analytics
+

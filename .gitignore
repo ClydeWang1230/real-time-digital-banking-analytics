@@ -1,0 +1,24 @@
+# Local environments and Python-generated files
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+~*.twbr
+
+# Local datasets and outputs; ignoring files does not delete them
+*.duckdb
+*.duckdb.*
+*.wal
+exports/
+artifacts/
+*.log
+
+# Local settings and editor state
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
